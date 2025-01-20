@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('image'); // On part du principe que ce sont des url stockés en BDD, donc des strings
-            $table->tinyInteger('status')->comment('1: inactive, 2: waiting, 3: active'); // TinyInteger utilisé pour optimiser l'espace avec en commentaire les 3 status
+            $table->enum('status', ['active', 'waiting', 'inactive'])->default('inactive'); // Enumérateur de status avec le statut 'inactif' par défault
             $table->timestamps();
         });
     }
