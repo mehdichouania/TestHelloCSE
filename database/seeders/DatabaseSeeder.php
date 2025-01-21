@@ -13,11 +13,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // On récupère l'utilisateur admin
+        $admin = User::query()->where('email', 'admin@hellocse.com')->first();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+
+        // S'il n'existe pas, on le crée
+        if(!$admin) 
+        {
+            User::factory()->create([
+                'name' => 'admin',
+                'email' => 'admin@hellocse.com',
+                'password' => 'password',
+            ]);
+        }
     }
 }
