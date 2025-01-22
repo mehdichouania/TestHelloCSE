@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 
 class Profile extends Model {
+
     use HasFactory;
 
     protected $casts = [
@@ -19,6 +20,7 @@ class Profile extends Model {
     protected $fillable = [
         'first_name',
         'last_name',
+        'image',
         'status',
     ];
 }
