@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Profile;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,18 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // On récupère l'utilisateur admin
-        $admin = User::query()->where('email', 'admin@hellocse.com')->first();
+        User::firstOrCreate(
+            ['email' => 'admin@hellocse.com'],
+            ['password' => 'password',
+            'isAdmin' => '1']
+        );
 
-
-        // S'il n'existe pas, on le crée
-        if(!$admin) 
-        {
-            User::factory()->create([
-                'name' => 'admin',
-                'email' => 'admin@hellocse.com',
-                'password' => 'password',
-            ]);
-        }
+        Profile::factory()->count(30)->create();
     }
 }
