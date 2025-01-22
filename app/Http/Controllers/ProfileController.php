@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\ProfileStatus;
 use App\Models\Profile;
 use App\Http\Requests\CreateProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
@@ -12,7 +13,13 @@ class ProfileController extends Controller
 {
     public function index() : JsonResponse
     {
-        $profiles = Profile::get();
+        $profiles = Profile::select([
+            'first_name',
+            'last_name',
+            'image',
+        ])->when(auth('sanctum')->check(), function($query) {
+            $query->addSelect('status');
+            })->where('status', 'active')->get();
 
         return response()->json(['profiles'=> $profiles]);
     }
