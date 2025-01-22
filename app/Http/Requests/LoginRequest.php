@@ -24,7 +24,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => ["required","string","email"],
-            'password' => ["required","string","min:10"]
+            'password' => ["required","string"]
         ];
     }
 
@@ -35,11 +35,10 @@ class LoginRequest extends FormRequest
     {
         return [
             'email.required' => 'Veuillez valider votre email',
-            'email.string' => 'Votre email doit être une chaîne de charactères',
-            'email.type' => 'Le format est incorrect',
+            'email.string' => 'Votre email doit être une chaîne de caractères',
+            'email.email' => 'Le format est incorrect',
             'password.required' => 'Veuillez valider votre mot de passe',
             'password.string' => 'Votre mot de passe doit être une chaine de caractères',
-            'password.length' => 'Votre mot de passe doit faire au moins 10 caractères'
         ];
     }
 }
