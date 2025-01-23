@@ -13,6 +13,7 @@ class ProfileController extends Controller
 {
     public function index() : JsonResponse
     {
+        // Condition pour récupérer l'ensemble des profils dans le status actif et ne retournant pas le champ status si non authentifié
         $profiles = Profile::select([
             'first_name',
             'last_name',

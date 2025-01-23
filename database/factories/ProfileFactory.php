@@ -18,6 +18,7 @@ class ProfileFactory extends Factory
 
     public function definition(): array
     {            
+        // Utilisation de faker pour créer des faux profils
         $faker = \Faker\Factory::create();
         $faker->addProvider(new \Smknstd\FakerPicsumImages\FakerPicsumImagesProvider($faker));
 

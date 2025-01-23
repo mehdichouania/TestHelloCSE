@@ -12,6 +12,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::prefix('profiles')->group(function() {
     Route::get('/', [ProfileController::class, 'index']);
 
+    // Middleware pour sécuriser les routes
     Route::middleware('auth:sanctum')->group(function() {
         Route::get('{id}', [ProfileController::class, 'get']);
         Route::post('', [ProfileController::class, 'create']);
