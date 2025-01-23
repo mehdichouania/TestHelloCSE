@@ -3,7 +3,7 @@
 
 # Test technique HelloCSE - API
 
-Il s'agit du test technique proposé par HelloCSE pour évaluser les compétences technique et le savoir-faire sur la technologie. Le principe étant de créer une API permettant de créer, editer, supprimer des profils en ajoutant une couche d'authentification et d'administration.
+Il s'agit du test technique proposé par HelloCSE pour évaluer les compétences techniques et le savoir-faire sur la technologie. Le principe étant de créer une API permettant de créer, editer, supprimer des profils en ajoutant une couche d'authentification et d'administration.
 
 
 ## Déploiement du projet en local
@@ -18,17 +18,20 @@ composer install
 
 Il suffit de copier le fichier `.env.example` et de le renommer en `.env`.
 
+
 ### Création du lien au storage public
 
 ```bash
 php artisan storage:link
 ```
 
+
 ### Création des tables
 
 ```bash
 php artisan migrate
 ```
+
 
 ### Peupler la base de données
 
